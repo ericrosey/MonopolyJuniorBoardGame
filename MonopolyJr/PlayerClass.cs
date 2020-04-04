@@ -15,11 +15,12 @@ namespace MonopolyJr
         private string playerName;
         private int playerLocation, playerMoney;
         private System.Drawing.Color playerColor;
+        private Button piece;
         
 
         public PlayerClass()
         {
-
+            playerLocation = 0;
         }
         public void setName(string newName)
         {
@@ -42,9 +43,28 @@ namespace MonopolyJr
         {
             return "Name: " + playerName + "\nColor: " + playerColor;
         }
-        public void movePiece(Button movingButton)
+        public void movePiece(int roll)
         {
-
+            if (playerLocation + roll <= 23)
+            {
+                playerLocation = playerLocation + roll;//for if they dont pass go
+            }
+            else//if they pass go
+            {
+                int newLocation = (playerLocation + roll) - 24;
+                playerLocation = newLocation;
+            }
+            MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
+        }
+        public Button makeButton()
+        {
+            Button gamePiece = new Button();
+            gamePiece.BackColor = playerColor;
+            gamePiece.Size = new Size(25, 25);
+            gamePiece.Location = new Point(450, 460);
+            
+            piece = gamePiece;
+            return piece;
         }
     }
 }
