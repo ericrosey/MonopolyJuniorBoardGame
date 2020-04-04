@@ -35,10 +35,8 @@
             this.lblUserPlayerName = new System.Windows.Forms.Label();
             this.txtUserPlayerName = new System.Windows.Forms.TextBox();
             this.btnUserColor = new System.Windows.Forms.Button();
-            this.btnUserPiece = new System.Windows.Forms.Button();
             this.pbxDie = new System.Windows.Forms.PictureBox();
-            this.button1 = new System.Windows.Forms.Button();
-            this.pnlBoard.SuspendLayout();
+            this.btnRollDie = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,7 +71,6 @@
             // 
             // pnlBoard
             // 
-            this.pnlBoard.Controls.Add(this.btnUserPiece);
             this.pnlBoard.Location = new System.Drawing.Point(57, 37);
             this.pnlBoard.Name = "pnlBoard";
             this.pnlBoard.Size = new System.Drawing.Size(688, 645);
@@ -108,14 +105,6 @@
             this.btnUserColor.TabIndex = 2;
             this.btnUserColor.UseVisualStyleBackColor = true;
             // 
-            // btnUserPiece
-            // 
-            this.btnUserPiece.Location = new System.Drawing.Point(627, 580);
-            this.btnUserPiece.Name = "btnUserPiece";
-            this.btnUserPiece.Size = new System.Drawing.Size(25, 25);
-            this.btnUserPiece.TabIndex = 3;
-            this.btnUserPiece.UseVisualStyleBackColor = true;
-            // 
             // pbxDie
             // 
             this.pbxDie.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("pbxDie.BackgroundImage")));
@@ -127,22 +116,23 @@
             this.pbxDie.TabIndex = 4;
             this.pbxDie.TabStop = false;
             // 
-            // button1
+            // btnRollDie
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(903, 647);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(157, 35);
-            this.button1.TabIndex = 5;
-            this.button1.Text = "ROLL DIE";
-            this.button1.UseVisualStyleBackColor = true;
+            this.btnRollDie.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnRollDie.Location = new System.Drawing.Point(903, 647);
+            this.btnRollDie.Name = "btnRollDie";
+            this.btnRollDie.Size = new System.Drawing.Size(157, 35);
+            this.btnRollDie.TabIndex = 5;
+            this.btnRollDie.Text = "ROLL DIE";
+            this.btnRollDie.UseVisualStyleBackColor = true;
+            this.btnRollDie.Click += new System.EventHandler(this.btnRollDie_Click);
             // 
             // MonopolyBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1291, 965);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnRollDie);
             this.Controls.Add(this.pbxDie);
             this.Controls.Add(this.btnUserColor);
             this.Controls.Add(this.txtUserPlayerName);
@@ -151,7 +141,6 @@
             this.Name = "MonopolyBoard";
             this.Text = "MonopolyBoard";
             this.Load += new System.EventHandler(this.Form1_Load);
-            this.pnlBoard.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbxDie)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -165,9 +154,8 @@
         private System.Windows.Forms.Label lblUserPlayerName;
         private System.Windows.Forms.TextBox txtUserPlayerName;
         private System.Windows.Forms.Button btnUserColor;
-        private System.Windows.Forms.Button btnUserPiece;
         private System.Windows.Forms.PictureBox pbxDie;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnRollDie;
     }
 }
 
