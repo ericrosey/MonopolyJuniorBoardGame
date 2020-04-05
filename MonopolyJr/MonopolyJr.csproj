@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardClass.cs" />
+    <Compile Include="CardListClass.cs" />
     <Compile Include="MonopolyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +96,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="CardFile.txt" />
     <Content Include="MonopolyBoard.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

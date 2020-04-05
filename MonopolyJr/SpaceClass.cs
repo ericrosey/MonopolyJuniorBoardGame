@@ -120,7 +120,7 @@ public class SpaceClass
         return false;
     }
 
-    public Boolean isBothOwned(string color)
+    public Boolean isBothOwned()
     {
         SpaceClass space = this;
 

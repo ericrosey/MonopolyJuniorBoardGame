@@ -1,0 +1,8 @@
+﻿1 * Go To Jail
+2 * Go To Jail
+3 * Return to Go
+4 * Return to Go
+5 * Roll Again
+6 * Roll Again
+7 * Get out of Jail 
+8 * Get out of Jail
