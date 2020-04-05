@@ -13,6 +13,10 @@ public class SpaceClass
     public SpaceClass()
     {
     }
+    public string displaySpace()
+    {
+        return spaceName + "\n$"  + rent.ToString();
+    }
     public Boolean createSpaceObject(string s)
     {
         SpaceClass thisSpace = this;
@@ -24,7 +28,6 @@ public class SpaceClass
         for (i = 0; i < spaceStringSize; i++)
         {
             spaceString[i] = spaceString[i].Trim();
-
         }
         if (spaceString[0].Length > 2)//space id
         {
@@ -33,60 +36,46 @@ public class SpaceClass
         }
         try
         {
-            spaceId = Convert.ToInt32(spaceString[0]);
+            spaceId = Convert.ToInt32(spaceString[0]);//for id
 
         }
         catch
         {
-            MessageBox.Show("not valid integer");
-            return false;
-        }
-        spaceId = Convert.ToInt32(spaceString[0]);
-
-        if (spaceId >= 24 || spaceId < 0)
-        {
-            MessageBox.Show("not between 0-24");
-        }
-
-
-        if (spaceString[1].Length != 1)//
-        {
-            MessageBox.Show(" rent incorrect format");
+            MessageBox.Show("Id is not valid integer");
             return false;
         }
         try
         {
-            rent = Convert.ToInt32(spaceString[1]);
+            rent = Convert.ToInt32(spaceString[1]);//for rent
         }
         catch
         {
-            MessageBox.Show("rent is not in the right format");
+            MessageBox.Show("Rent is not in the right format");
             return false;
         }
-
-        spaceType = spaceString[2];
-        if (spaceType == "" || spaceType == " ")
+        
+        spaceType = spaceString[2];//for spae type
+        if (spaceType == "")
         {
-            MessageBox.Show("Type is empty");
+            MessageBox.Show("Type is Empty");
             return false;
         }
-
         spaceName = spaceString[3];
-        if (spaceName == "" || spaceName == " ")
+        if (spaceName == "")
         {
             MessageBox.Show("Name is empty");
             return false;
-        }/*
-        try check space color
-        {
-            
         }
-        catch{}
-        */
+        try
+        {
+            spaceColor = System.Drawing.Color.FromName(spaceString[4]);
+        }
+        catch
+        {
+            MessageBox.Show("Color is not a color");
+        }
         return true;
     }
-
-
 
     public Boolean checkSpaceID(int ID)//to get space in list for SpaceListClass
     {
@@ -97,9 +86,10 @@ public class SpaceClass
             spaceId = space.spaceId;
             rent = space.rent;
             spaceType = space.spaceType;
-            spaceName = space.spaceType;
+            spaceName = space.spaceName;
             spaceColor = space.spaceColor;
             isOwned = space.isOwned;
+            MessageBox.Show(space.displaySpace());
             return true;
         }
 

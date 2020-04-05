@@ -13,8 +13,9 @@ namespace MonopolyJr
     class MonopolyBoardGame
     {
         public static PlayerClass user = new PlayerClass();
+        public static SpaceListClass spaceList = new SpaceListClass();
 
-        private static string currentRecordFilePath = @"C:\Users\maxro\Desktop\monopolyjr\MonopolyBoard.txt";
+        private static string currentRecordFilePath = @"MonopolyBoard.txt";
 
 
         public static ReadFileClass readFile = new
