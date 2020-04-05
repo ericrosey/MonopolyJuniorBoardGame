@@ -97,7 +97,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="CardFile.txt" />
-    <Content Include="MonopolyBoard.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

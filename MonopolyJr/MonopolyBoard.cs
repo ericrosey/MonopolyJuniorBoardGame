@@ -192,6 +192,7 @@ namespace MonopolyJr
             Button btn1 = MonopolyBoardGame.user.makeButton();
             pnlBoard.Controls.Add(btn1);
             btn1.BringToFront();
+            MonopolyBoardGame.spaceList.initializeEntireList();
         }
 
         private void btnRollDie_Click(object sender, EventArgs e)

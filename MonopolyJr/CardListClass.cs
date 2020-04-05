@@ -28,7 +28,7 @@ namespace MonopolyJr
         }
         public string randomCard()
         {
-
+            return "t";
         }
     }
 }

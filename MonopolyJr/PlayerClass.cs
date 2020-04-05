@@ -83,7 +83,8 @@ namespace MonopolyJr
                 playerLocation = newLocation;
             }
             piece.Location = locations[playerLocation];
-            MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
+            MonopolyBoardGame.spaceList.getSpaceInList(playerLocation);
+            //MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
         }
         public Button makeButton()
         {
