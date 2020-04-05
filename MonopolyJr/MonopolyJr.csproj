@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CardClass.cs" />
+    <Compile Include="CardListClass.cs" />
     <Compile Include="MonopolyBoard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -56,6 +58,9 @@
     <Compile Include="PlayerClass.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReadFileClass.cs" />
+    <Compile Include="SpaceClass.cs" />
+    <Compile Include="SpaceListClass.cs" />
     <Compile Include="Welcome.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -89,6 +94,10 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="CardFile.txt" />
+    <Content Include="MonopolyBoard.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
