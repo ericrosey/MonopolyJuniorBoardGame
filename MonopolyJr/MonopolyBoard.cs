@@ -20,6 +20,8 @@ namespace MonopolyJr
 
         private PictureBox[,] newPictureBox = new PictureBox[MONOPOLYBOARDSIZE, MONOPOLYBOARDSIZE];
 
+        public Point[] locations = new Point[23];
+
         int spaceCellWidth = 72;
         int spaceCellHeight = 72;
         int xboardUpperLeft = 45;
@@ -30,6 +32,7 @@ namespace MonopolyJr
             pnlBoard.Visible = true;
             createBoard();
         }
+        
         private void createBoard()
         {
             Size size = new Size(spaceCellWidth, spaceCellHeight);
@@ -181,10 +184,22 @@ namespace MonopolyJr
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            
             createMonopolyBoardOnForm();
             txtUserPlayerName.Text = MonopolyBoardGame.user.getName();
             btnUserColor.BackColor = MonopolyBoardGame.user.getColor();
-            btnUserPiece.BackColor = MonopolyBoardGame.user.getColor();
+            pnlBoard.SendToBack();
+            Button btn1 = MonopolyBoardGame.user.makeButton();
+            pnlBoard.Controls.Add(btn1);
+            btn1.BringToFront();
+        }
+
+        private void btnRollDie_Click(object sender, EventArgs e)
+        {
+            Random random = new Random();
+            int roll = random.Next(1, 7);
+            MessageBox.Show("Roll: " + roll);
+            MonopolyBoardGame.user.movePiece(roll);
         }
     }//close class
 }//close namespace
