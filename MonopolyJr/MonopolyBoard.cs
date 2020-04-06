@@ -206,6 +206,8 @@ namespace MonopolyJr
             pnlBoard.Controls.Add(btn1);
             btn1.BringToFront();
             MonopolyBoardGame.spaceList.initializeEntireList();
+
+            MonopolyBoardGame.cardList.initializeCardList();
         }
         
         private void btnRollDie_Click(object sender, EventArgs e)

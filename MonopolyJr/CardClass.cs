@@ -17,7 +17,7 @@ namespace MonopolyJr
 
         public string displayCard()
         {
-            return cardText;
+            return cardValue + cardText;
         }
 
         public Boolean createCardObject(string c)
