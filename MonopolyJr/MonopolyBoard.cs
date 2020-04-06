@@ -188,8 +188,7 @@ namespace MonopolyJr
             createMonopolyBoardOnForm();
             txtUserPlayerName.Text = MonopolyBoardGame.user.getName();
             btnUserColor.BackColor = MonopolyBoardGame.user.getColor();
-            //MonopolyBoardGame.user.setMoney(20);
-            //MonopolyBoardGame.player2.setMoney(20);
+
             txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
             pnlBoard.SendToBack();
 
@@ -219,13 +218,14 @@ namespace MonopolyJr
             {
                 MonopolyBoardGame.user.movePiece(roll);
                 txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
+                txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
             }
             else//player2
             {
-
                 MessageBox.Show("not user turn");
                 MonopolyBoardGame.player2.movePiece(roll);
                 txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+                txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
             }
             
         }

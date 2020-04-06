@@ -92,6 +92,7 @@ namespace MonopolyJr
                 int newLocation = (playerLocation + roll) - 24;
                 playerLocation = newLocation;
             }
+            
             piece.Location = locations[playerLocation];
             MonopolyBoardGame.spaceList.getSpaceInList(playerLocation);
             //MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
@@ -119,6 +120,43 @@ namespace MonopolyJr
                 ownedSpaces.Add(boughtSpace);
                 playerMoney = playerMoney - rent;
                 
+            }
+        }
+        public void userPayRent(int rent, SpaceClass landedSpace)
+        {
+            if (ownedSpaces.Contains(landedSpace))
+            {
+                MessageBox.Show("You own this space\n" + "Your turn is over");
+            }
+            else
+            {
+                if(playerMoney - rent <= 0)
+                {
+                    MessageBox.Show("You dont have enough money");
+                }
+                else
+                {
+                    MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
+                    int tempMoney = MonopolyBoardGame.player2.getMoney();
+                    tempMoney = tempMoney + rent;
+                    MonopolyBoardGame.player2.setMoney(tempMoney);
+                    playerMoney = playerMoney - rent;
+                }
+            }
+        }//end userPayRent
+        public void player2PayRent(int rent, SpaceClass landedSpace)
+        {
+            if (ownedSpaces.Contains(landedSpace))
+            {
+                MessageBox.Show("You own this space");
+            }
+            else
+            {
+                MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
+                int tempMoney = MonopolyBoardGame.user.getMoney();
+                tempMoney = tempMoney + rent;
+                MonopolyBoardGame.user.setMoney(tempMoney);
+                playerMoney = playerMoney - rent;
             }
         }
         
