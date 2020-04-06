@@ -27,13 +27,13 @@ namespace MonopolyJr
         int xboardUpperLeft = 45;
         int yboardUpperLeft = 45;
 
-        private void createMonopolyBoardOnForm()
+        private void createMonopolyBoardOnForm()//allows for panel to be visible and starts creating board
         {
             pnlBoard.Visible = true;
             createBoard();
         }
         
-        private void createBoard()
+        private void createBoard()//makes the board on the panel
         {
             Size size = new Size(spaceCellWidth, spaceCellHeight);
             Point loc = new Point(0, 0);
@@ -51,12 +51,12 @@ namespace MonopolyJr
                     if(row == 0) //top row
                     {
                         newPictureBox[row, col] = new PictureBox();
-                        newPictureBox[row, col].Location = new Point(col * size.Width, loc.Y);
-                        newPictureBox[row, col].Size = size;
-                        newPictureBox[row, col].BackColor = System.Drawing.Color.Black;
-                        newPictureBox[row, col].Image = imgListSpaces.Images[imageListIndex];
-                        newPictureBox[row, col].Padding = new System.Windows.Forms.Padding(1);
-                        imageListIndex++;
+                        newPictureBox[row, col].Location = new Point(col * size.Width, loc.Y);//sets its location
+                        newPictureBox[row, col].Size = size;//sets its size
+                        newPictureBox[row, col].BackColor = System.Drawing.Color.Black;//sets backcolor for border visual
+                        newPictureBox[row, col].Image = imgListSpaces.Images[imageListIndex];//sets picture to proper space image
+                        newPictureBox[row, col].Padding = new System.Windows.Forms.Padding(1);//padding helped with border
+                        imageListIndex++;//increment img index to change images for image list
                     }
                     else if(row == 1 && col == 0) //2nd row 1st col
                     {
@@ -168,7 +168,7 @@ namespace MonopolyJr
                         newPictureBox[row, col].Padding = new System.Windows.Forms.Padding(1);
                         imageListIndex++;
                     }
-                    else
+                    else//sets center of board to be white
                     {
                         newPictureBox[row, col] = new PictureBox();
                         newPictureBox[row, col].Location = new Point(col * size.Width, loc.Y);
@@ -184,54 +184,54 @@ namespace MonopolyJr
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            createMonopolyBoardOnForm();
-            txtUserPlayerName.Text = MonopolyBoardGame.user.getName();
-            btnUserColor.BackColor = MonopolyBoardGame.user.getColor();
+            createMonopolyBoardOnForm();//create board on form
+            txtUserPlayerName.Text = MonopolyBoardGame.user.getName();//sets textbox to user name
+            btnUserColor.BackColor = MonopolyBoardGame.user.getColor();//sets color for user to the color they picked
 
-            txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
-            pnlBoard.SendToBack();
+            txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());//puts user money in textbox
+            pnlBoard.SendToBack();//forces panel to back
 
-            MonopolyBoardGame.player2.setColor(System.Drawing.Color.Orange);
-            MonopolyBoardGame.player2.setName("Player 2");
-            txtPlayer2Name.Text = MonopolyBoardGame.player2.getName();
-            txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+            MonopolyBoardGame.player2.setColor(System.Drawing.Color.Orange);//sets color for 2nd player
+            MonopolyBoardGame.player2.setName("Player 2");//sets name for 2nd player
+            txtPlayer2Name.Text = MonopolyBoardGame.player2.getName();//puts 2nd players name in textbox
+            txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());//puts 2nd player money in textbox
 
-            Button btn2 = MonopolyBoardGame.player2.makeButton();
-            pnlBoard.Controls.Add(btn2);
-            btn2.BringToFront();
+            Button btn2 = MonopolyBoardGame.player2.makeButton();//makes button from player2 info
+            pnlBoard.Controls.Add(btn2);//adds btn to panel
+            btn2.BringToFront();//makes sure it is visible above the panel
 
-            Button btn1 = MonopolyBoardGame.user.makeButton();
-            pnlBoard.Controls.Add(btn1);
-            btn1.BringToFront();
-            MonopolyBoardGame.spaceList.initializeEntireList();
+            Button btn1 = MonopolyBoardGame.user.makeButton();//makes button from user info
+            pnlBoard.Controls.Add(btn1);//adds btn to panel
+            btn1.BringToFront();//makes sure it is visible
+            MonopolyBoardGame.spaceList.initializeEntireList();//initializes space list
 
-            MonopolyBoardGame.cardList.initializeCardList();
+            MonopolyBoardGame.cardList.initializeCardList();//initializes card list
         }
         
         private void btnRollDie_Click(object sender, EventArgs e)
         {
             Random random = new Random();
-            int roll = random.Next(1, 7);
-            MessageBox.Show("Roll: " + roll);
-            if (!MonopolyBoardGame.turn)//user
+            int roll = random.Next(1, 7);//gets random num for dice roll
+            MessageBox.Show("Roll: " + roll);//shows dice roll
+            if (!MonopolyBoardGame.turn)//user turn
             {
                 MonopolyBoardGame.user.movePiece(roll);
-                txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
+                txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());//sets visible money to correct values
                 txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
                 if(MonopolyBoardGame.user.getMoney() == 0)//user is bankrupt
                 {
-                    btnRollDie.Enabled = false;
+                    btnRollDie.Enabled = false;//doesnt let them roll again
                     MessageBox.Show(MonopolyBoardGame.player2.getName() + " IS THE WINNER!!!!!");
                 }
             }
-            else//player2
+            else//player2 turn
             {
                 MonopolyBoardGame.player2.movePiece(roll);
-                txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+                txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());//sets visible money to correct values
                 txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
-                if (MonopolyBoardGame.player2.getMoney() == 0)
+                if (MonopolyBoardGame.player2.getMoney() == 0)//player 2 bankrupt
                 {
-                    btnRollDie.Enabled = false;
+                    btnRollDie.Enabled = false;//doesnt let them roll again
                     MessageBox.Show(MonopolyBoardGame.user.getName() + " IS THE WINNER!!!!!");
                 }
             }
