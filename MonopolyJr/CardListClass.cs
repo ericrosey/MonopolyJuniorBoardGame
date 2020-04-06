@@ -51,17 +51,18 @@ namespace MonopolyJr
             int number = randomNumber.Next(1, 8);
             return number;
         }
-        public Boolean randomCard(int cardID)
+        public CardClass randomCard()
         {
             index = randomNumberCard();
             foreach (CardClass card in InternalList)
             {
-                if (card.checkCardID(cardID) == true)
-                    return true;
-                else
-                    index++;
+                if (card.checkCardID(index) == true)
+                    return card;
+                
             }
-            return false;
+            CardClass cards = new CardClass();
+            return cards;
+            
         }
 
 

@@ -108,7 +108,7 @@ public class SpaceClass
             MessageBox.Show(space.displaySpace());
             if (!isOwned && spaceType == "property")
             {
-                if(!MonopolyJr.MonopolyBoardGame.turn)
+                if (!MonopolyJr.MonopolyBoardGame.turn)
                 {
                     MonopolyJr.MonopolyBoardGame.user.buyProperty(rent, space);
                     MonopolyJr.MonopolyBoardGame.turn = true;
@@ -120,6 +120,14 @@ public class SpaceClass
                     MonopolyJr.MonopolyBoardGame.turn = false;
                 }
             }
+
+            else if(spaceType == "chance")//call find card, get random card instance == to random card call display 
+            {
+                MessageBox.Show("you landed on chance");
+                MonopolyJr.CardClass chanceCard = MonopolyJr.MonopolyBoardGame.cardList.randomCard();
+                MessageBox.Show("chance card" + chanceCard.displayCard());
+            }
+
             else if(isOwned && spaceType == "property")//this handles owned prop
             {
                 MessageBox.Show("Somebody owns this space");//this is where you will pay others
@@ -134,8 +142,6 @@ public class SpaceClass
                     MonopolyJr.MonopolyBoardGame.player2.player2PayRent(rent, space);
                     MonopolyJr.MonopolyBoardGame.turn = false;
                 }
-
-
 
             }
             else

@@ -16,6 +16,8 @@ namespace MonopolyJr
         public static PlayerClass player2 = new PlayerClass();
         public static SpaceListClass spaceList = new SpaceListClass();
         public static SpaceClass space = new SpaceClass();
+        public static CardClass card = new CardClass();
+        public static CardListClass cardList = new CardListClass();
 
         public static bool turn;
 
