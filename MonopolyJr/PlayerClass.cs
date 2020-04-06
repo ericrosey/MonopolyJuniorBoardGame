@@ -89,10 +89,34 @@ namespace MonopolyJr
             }
             else//if they pass go
             {
+                playerMoney = playerMoney + 2;
                 int newLocation = (playerLocation + roll) - 24;
                 playerLocation = newLocation;
             }
-            
+            if(playerLocation == 18)
+            {
+                if (playerMoney - 1 <= 0)
+                {
+                    MessageBox.Show("You don't have enough money to get out of jail");
+                    getWinner();
+                }
+                else
+                {
+                    MessageBox.Show("You have to go to Jail :(");
+                    playerMoney = playerMoney - 1;
+                    playerLocation = 6;
+                    piece.Location = locations[6];
+                    if (MonopolyBoardGame.turn)
+                    {
+                        MonopolyBoardGame.turn = false;
+                    }
+                    else
+                    {
+                        MonopolyBoardGame.turn = true;
+                    }
+                    return;
+                }
+            }
             piece.Location = locations[playerLocation];
             MonopolyBoardGame.spaceList.getSpaceInList(playerLocation);
             //MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
@@ -112,6 +136,7 @@ namespace MonopolyJr
             if(playerMoney - rent <= 0)
             {
                 MessageBox.Show("Not enough Money!");
+                getWinner();
             }
             else
             {
@@ -133,6 +158,7 @@ namespace MonopolyJr
                 if(playerMoney - rent <= 0)
                 {
                     MessageBox.Show("You dont have enough money");
+                    getWinner();
                 }
                 else
                 {
@@ -152,14 +178,38 @@ namespace MonopolyJr
             }
             else
             {
-                MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
-                int tempMoney = MonopolyBoardGame.user.getMoney();
-                tempMoney = tempMoney + rent;
-                MonopolyBoardGame.user.setMoney(tempMoney);
-                playerMoney = playerMoney - rent;
+                if (playerMoney - rent <= 0)
+                {
+                    MessageBox.Show("You dont have enough money");
+                    getWinner();
+                }
+                else
+                {
+                    MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
+                    int tempMoney = MonopolyBoardGame.user.getMoney();
+                    tempMoney = tempMoney + rent;
+                    MonopolyBoardGame.user.setMoney(tempMoney);
+                    playerMoney = playerMoney - rent;
+                }
             }
         }
-        
+        public void doChanceCard(CardClass pickedCard)
+        {
+            int moneyOnCard = pickedCard.getCardValue();
+            if(playerMoney + moneyOnCard <= 0)
+            {
+                MessageBox.Show("You are out of money");
+                getWinner();
+            }
+            else
+            {
+                playerMoney = playerMoney + moneyOnCard;
+            }
+        }
+        public void getWinner()
+        {
+            playerMoney = 0;
+        }
         
     }
 }

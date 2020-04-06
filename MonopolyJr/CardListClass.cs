@@ -48,7 +48,7 @@ namespace MonopolyJr
         public int randomNumberCard()
         {
             Random randomNumber = new Random();
-            int number = randomNumber.Next(1, 8);
+            int number = randomNumber.Next(1, 9);
             return number;
         }
         public CardClass randomCard()

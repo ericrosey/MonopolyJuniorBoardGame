@@ -184,7 +184,6 @@ namespace MonopolyJr
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            
             createMonopolyBoardOnForm();
             txtUserPlayerName.Text = MonopolyBoardGame.user.getName();
             btnUserColor.BackColor = MonopolyBoardGame.user.getColor();
@@ -219,13 +218,22 @@ namespace MonopolyJr
                 MonopolyBoardGame.user.movePiece(roll);
                 txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
                 txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+                if(MonopolyBoardGame.user.getMoney() == 0)//user is bankrupt
+                {
+                    btnRollDie.Enabled = false;
+                    MessageBox.Show(MonopolyBoardGame.player2.getName() + " IS THE WINNER!!!!!");
+                }
             }
             else//player2
             {
-                MessageBox.Show("not user turn");
                 MonopolyBoardGame.player2.movePiece(roll);
                 txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
                 txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
+                if (MonopolyBoardGame.player2.getMoney() == 0)
+                {
+                    btnRollDie.Enabled = false;
+                    MessageBox.Show(MonopolyBoardGame.user.getName() + " IS THE WINNER!!!!!");
+                }
             }
             
         }
