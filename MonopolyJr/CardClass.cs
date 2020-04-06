@@ -15,7 +15,12 @@ namespace MonopolyJr
 
         public object MessageShow { get; private set; }
 
-        private Boolean createCardObject(string c)
+        public string displayCard()
+        {
+            return cardText;
+        }
+
+        public Boolean createCardObject(string c)
         {
             CardClass card = this;
             string[] cardString = c.Split('*');
@@ -48,15 +53,26 @@ namespace MonopolyJr
             }
             return true;
         }
+        public Boolean checkCardID(int ID)//to get space in list for SpaceListClass
+        {
+            CardClass card = this;
+
+            if (ID == card.cardValue)
+            {
+                cardValue = card.cardValue;
+                cardText = card.cardText;
+                MessageBox.Show(card.displayCard());
+                return true;
+            }
+
+            else
+            {
+                return false;
+            }
+        }
 
 
-        public bool getCardText(int ID)
-        {
-            return true;
-        }
-        public bool getCardValue(int ID)
-        {
-            return true;
-        }
+
+
     }
 }

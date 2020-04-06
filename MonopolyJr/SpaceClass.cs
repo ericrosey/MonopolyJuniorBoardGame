@@ -24,7 +24,7 @@ public class SpaceClass
     public string displaySpace()
     {
         return spaceName + "\n$"  + rent.ToString();
-    }
+    } 
     public Boolean createSpaceObject(string s)
     {
         SpaceClass thisSpace = this;
@@ -179,9 +179,10 @@ public class SpaceClass
 
         if (space.spaceType == "chance")
         {
-            //do chance
+            MessageBox.Show("chance card");
+            return true;
         }
-        return true;
+        return false;
     }
     public Boolean isOther(int ID)
     {

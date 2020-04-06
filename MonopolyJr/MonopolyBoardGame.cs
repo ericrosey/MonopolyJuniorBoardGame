@@ -20,10 +20,12 @@ namespace MonopolyJr
         public static bool turn;
 
         private static string currentRecordFilePath = @"MonopolyBoard.txt";
-
+        private static string currentCardFilePath = @"CardFile.txt";
 
         public static ReadFileClass readFile = new
             ReadFileClass(currentRecordFilePath);
 
+        public static ReadFileClass readCardFile = new
+            ReadFileClass(currentCardFilePath);
     }
 }
