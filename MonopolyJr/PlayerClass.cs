@@ -19,7 +19,7 @@ namespace MonopolyJr
         private Button piece;
         private Point[] locations = new Point[24];
 
-        public PlayerClass()
+        public PlayerClass()//sets money and location to starting values, and fills location array
         {
             playerMoney = 20;
             playerLocation = 0;
@@ -33,7 +33,7 @@ namespace MonopolyJr
         {
             playerMoney = newMoney;
         }
-        public void fillLocations()
+        public void fillLocations()//sets locations to points on board corresponding to spaces
         {
             locations[0] = new Point(450, 450);
             locations[1] = new Point(380, 450);
@@ -89,11 +89,11 @@ namespace MonopolyJr
             }
             else//if they pass go
             {
-                playerMoney = playerMoney + 2;
+                playerMoney = playerMoney + 2;//gives them $2 for passing go
                 int newLocation = (playerLocation + roll) - 24;
                 playerLocation = newLocation;
             }
-            if(playerLocation == 18)
+            if(playerLocation == 18)//if they land on go to jail
             {
                 if (playerMoney - 1 <= 0)
                 {
@@ -104,8 +104,8 @@ namespace MonopolyJr
                 {
                     MessageBox.Show("You have to go to Jail :(");
                     playerMoney = playerMoney - 1;
-                    playerLocation = 6;
-                    piece.Location = locations[6];
+                    playerLocation = 6;//sets location to jail
+                    piece.Location = locations[6];//moves piece to jail
                     if (MonopolyBoardGame.turn)
                     {
                         MonopolyBoardGame.turn = false;
@@ -117,11 +117,11 @@ namespace MonopolyJr
                     return;
                 }
             }
-            piece.Location = locations[playerLocation];
+            piece.Location = locations[playerLocation];//sets loaction pf piece to player location
             MonopolyBoardGame.spaceList.getSpaceInList(playerLocation);
             //MessageBox.Show("PlayerLocation: " + playerLocation.ToString()); 
         }
-        public Button makeButton()
+        public Button makeButton()//creates button using player info
         {
             Button gamePiece = new Button();
             gamePiece.BackColor = playerColor;
@@ -133,12 +133,12 @@ namespace MonopolyJr
         }
         public void buyProperty(int rent, SpaceClass boughtSpace)
         {
-            if(playerMoney - rent <= 0)
+            if(playerMoney - rent <= 0)//if they cant afford to buy
             {
                 MessageBox.Show("Not enough Money!");
                 getWinner();
             }
-            else
+            else//subtracts money and add property to owned spaces
             {
                 MessageBox.Show("You just bought: " + boughtSpace.getName());
                 boughtSpace.setOwn(true);
@@ -155,12 +155,12 @@ namespace MonopolyJr
             }
             else
             {
-                if(playerMoney - rent <= 0)
+                if(playerMoney - rent <= 0)//if they cant afford to buy
                 {
                     MessageBox.Show("You dont have enough money");
                     getWinner();
                 }
-                else
+                else//subtracts money and add money to other player
                 {
                     MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
                     int tempMoney = MonopolyBoardGame.player2.getMoney();
@@ -180,10 +180,10 @@ namespace MonopolyJr
             {
                 if (playerMoney - rent <= 0)
                 {
-                    MessageBox.Show("You dont have enough money");
+                    MessageBox.Show("You dont have enough money");//if they cant afford to pay
                     getWinner();
                 }
-                else
+                else//subtracts money and add money to other player
                 {
                     MessageBox.Show("You owe $" + rent + "for " + landedSpace.getName());
                     int tempMoney = MonopolyBoardGame.user.getMoney();
@@ -196,17 +196,17 @@ namespace MonopolyJr
         public void doChanceCard(CardClass pickedCard)
         {
             int moneyOnCard = pickedCard.getCardValue();
-            if(playerMoney + moneyOnCard <= 0)
+            if(playerMoney + moneyOnCard <= 0)//if they dont have enough money after chance action
             {
                 MessageBox.Show("You are out of money");
                 getWinner();
             }
-            else
+            else//performs chance action
             {
                 playerMoney = playerMoney + moneyOnCard;
             }
         }
-        public void getWinner()
+        public void getWinner()//sets player money to zero after they run out
         {
             playerMoney = 0;
         }
