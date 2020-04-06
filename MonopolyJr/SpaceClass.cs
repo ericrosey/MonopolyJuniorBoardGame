@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 public class SpaceClass
 {
+    //attributes of spaces
     private int spaceId;
     private int rent;
     private string spaceType;
@@ -17,88 +18,89 @@ public class SpaceClass
     private System.Drawing.Color spaceColor;
     private bool isOwned;
 
-    public SpaceClass()
+    public SpaceClass()//constructor
     {
-        isOwned = false;
+        isOwned = false;//isOwned fault false
     }
-    public string displaySpace()
+    public string displaySpace()//displays name and rent
     {
         return spaceName + "\n$"  + rent.ToString();
     } 
-    public Boolean createSpaceObject(string s)
+    public Boolean createSpaceObject(string s)//creates object from text file
     {
-        SpaceClass thisSpace = this;
-        string[] spaceString = s.Split('*');
-        int i;
+        SpaceClass thisSpace = this;//creates object
+        string[] spaceString = s.Split('*');//splits object by *. splits objects into seperate attributes
+        int i;//decclares variable
 
-        int spaceStringSize = spaceString.GetLength(0);
+        int spaceStringSize = spaceString.GetLength(0);//gets length
 
-        for (i = 0; i < spaceStringSize; i++)
+        for (i = 0; i < spaceStringSize; i++)//loops thru each
         {
             spaceString[i] = spaceString[i].Trim();
         }
         if (spaceString[0].Length > 2)//space id
         {
             MessageBox.Show("spaceId is not right length");
-            return false;
+            return false;//returns false if id is not the correct length
         }
-        try
+        try//trys to convert space id
         {
             spaceId = Convert.ToInt32(spaceString[0]);//for id
 
         }
-        catch
+        catch//if id cannot be converted we no it is not the right format
         {
             MessageBox.Show("Id is not valid integer");
             return false;
         }
-        try
+        try//tries to convert rent
         {
             rent = Convert.ToInt32(spaceString[1]);//for rent
         }
         catch
         {
             MessageBox.Show("Rent is not in the right format");
-            return false;
+            return false;//returns false if it isntt a number
         }
         
-        spaceType = spaceString[2];//for spae type
-        if (spaceType == "")
+        spaceType = spaceString[2];//for space type
+        if (spaceType == "")//makes sure it is not empty
         {
             MessageBox.Show("Type is Empty");
-            return false;
+            return false;//returns false if it is
         }
         spaceName = spaceString[3];
-        if (spaceName == "")
+        if (spaceName == "")//makes sure soace has a name
         {
             MessageBox.Show("Name is empty");
             return false;
         }
-        try
+        try//tries to convert systemColor into a color
         {
             spaceColor = System.Drawing.Color.FromName(spaceString[4]);
         }
         catch
         {
-            MessageBox.Show("Color is not a color");
+            MessageBox.Show("Color is not a color");//makes sure it is a color
         }
         return true;
     }
-    public void setOwn(bool owned)
+    public void setOwn(bool owned)//setter
     {
         isOwned = owned;
     }
-    public Boolean getOwn()
+    public Boolean getOwn()//getter
     {
         return isOwned;
     }
 
     public Boolean checkSpaceID(int ID)//to get space in list for SpaceListClass
     {
-        SpaceClass space = this;
+        SpaceClass space = this;//for object
 
-        if (ID == space.spaceId)
+        if (ID == space.spaceId)//for a space, get its spaceid
         {
+            //gets evey attribute for object
             spaceId = space.spaceId;
             rent = space.rent;
             spaceType = space.spaceType;
@@ -106,7 +108,7 @@ public class SpaceClass
             spaceColor = space.spaceColor;
             isOwned = space.isOwned;
             MessageBox.Show(space.displaySpace());
-            if (!isOwned && spaceType == "property")
+            if (!isOwned && spaceType == "property")//checks for unowned properties
             {
                 if (!MonopolyJr.MonopolyBoardGame.turn)
                 {
@@ -176,15 +178,15 @@ public class SpaceClass
             return false;
         }
     }
-    public string getName()
+    public string getName()//getter
     {
         return spaceName;
     }
-    public SpaceClass getSpace()
+    public SpaceClass getSpace()//getter
     {
         return this;
     }
-    public Boolean isOwn()
+    public Boolean isOwn()//is own is default false. it checks if the current space is not owned and if not it changes value
     {
         SpaceClass space = this;
         if(space.isOwned == false)
@@ -213,7 +215,7 @@ public class SpaceClass
         }
         return false;
     }
-    public Boolean isOther(int ID)
+    public Boolean isOther(int ID)//checks if current space is go to jail
     {
         SpaceClass space = this;
         ID = space.spaceId;
@@ -237,8 +239,9 @@ public class SpaceClass
             spaceColor = space.spaceColor;
             isOwned = space.isOwned;
         }*/
-        if(ID == 18)
+        if(ID == 18)//go to jail space id
         {
+            //changes id to jail id
             spaceId = 6;//jail
             rent = 2;
             spaceType = space.spaceType;
