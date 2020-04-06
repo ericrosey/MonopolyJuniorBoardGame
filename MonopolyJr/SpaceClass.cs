@@ -120,10 +120,23 @@ public class SpaceClass
                     MonopolyJr.MonopolyBoardGame.turn = false;
                 }
             }
-            else if(isOwned && spaceType == "property")
+            else if(isOwned && spaceType == "property")//this handles owned prop
             {
                 MessageBox.Show("Somebody owns this space");//this is where you will pay others
-                
+                if (!MonopolyJr.MonopolyBoardGame.turn)//player1 turn
+                {
+                    MonopolyJr.MonopolyBoardGame.user.userPayRent(rent, space);
+                    MonopolyJr.MonopolyBoardGame.turn = true;
+                }
+                else
+                {
+                    //player 2 turn
+                    MonopolyJr.MonopolyBoardGame.player2.player2PayRent(rent, space);
+                    MonopolyJr.MonopolyBoardGame.turn = false;
+                }
+
+
+
             }
             else
             {
