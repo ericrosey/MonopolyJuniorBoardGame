@@ -1,4 +1,11 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 public class SpaceClass
@@ -12,6 +19,7 @@ public class SpaceClass
 
     public SpaceClass()
     {
+        isOwned = false;
     }
     public string displaySpace()
     {
@@ -76,6 +84,14 @@ public class SpaceClass
         }
         return true;
     }
+    public void setOwn(bool owned)
+    {
+        isOwned = owned;
+    }
+    public Boolean getOwn()
+    {
+        return isOwned;
+    }
 
     public Boolean checkSpaceID(int ID)//to get space in list for SpaceListClass
     {
@@ -90,6 +106,39 @@ public class SpaceClass
             spaceColor = space.spaceColor;
             isOwned = space.isOwned;
             MessageBox.Show(space.displaySpace());
+            if (!isOwned && spaceType == "property")
+            {
+                if(!MonopolyJr.MonopolyBoardGame.turn)
+                {
+                    MonopolyJr.MonopolyBoardGame.user.buyProperty(rent, space);
+                    MonopolyJr.MonopolyBoardGame.turn = true;
+                }
+                else
+                {
+                    MessageBox.Show("player2 should buy property");
+                    MonopolyJr.MonopolyBoardGame.player2.buyProperty(rent, space);
+                    MonopolyJr.MonopolyBoardGame.turn = false;
+                }
+            }
+            else if(isOwned && spaceType == "property")
+            {
+                MessageBox.Show("Somebody owns this space");//this is where you will pay others
+                
+            }
+            else
+            {
+                MessageBox.Show("Either chance, or corner piece");
+                if (!MonopolyJr.MonopolyBoardGame.turn)
+                {
+                    MessageBox.Show("user grab chance");
+                    MonopolyJr.MonopolyBoardGame.turn = true;
+                }
+                else
+                {
+                    MessageBox.Show("player2 grab chance");
+                    MonopolyJr.MonopolyBoardGame.turn = false;
+                }
+            }
             return true;
         }
 
@@ -98,7 +147,14 @@ public class SpaceClass
             return false;
         }
     }
-
+    public string getName()
+    {
+        return spaceName;
+    }
+    public SpaceClass getSpace()
+    {
+        return this;
+    }
     public Boolean isOwn()
     {
         SpaceClass space = this;

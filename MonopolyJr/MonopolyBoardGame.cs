@@ -13,7 +13,11 @@ namespace MonopolyJr
     class MonopolyBoardGame
     {
         public static PlayerClass user = new PlayerClass();
+        public static PlayerClass player2 = new PlayerClass();
         public static SpaceListClass spaceList = new SpaceListClass();
+        public static SpaceClass space = new SpaceClass();
+
+        public static bool turn;
 
         private static string currentRecordFilePath = @"MonopolyBoard.txt";
 

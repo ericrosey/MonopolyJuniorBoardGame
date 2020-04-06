@@ -15,13 +15,23 @@ namespace MonopolyJr
         private string playerName;
         private int playerLocation, playerMoney;
         private System.Drawing.Color playerColor;
+        private List<SpaceClass> ownedSpaces = new List<SpaceClass>();
         private Button piece;
         private Point[] locations = new Point[24];
 
         public PlayerClass()
         {
+            playerMoney = 20;
             playerLocation = 0;
             fillLocations();
+        }
+        public int getMoney()
+        {
+            return playerMoney;
+        }
+        public void setMoney(int newMoney)
+        {
+            playerMoney = newMoney;
         }
         public void fillLocations()
         {
@@ -95,6 +105,21 @@ namespace MonopolyJr
             
             piece = gamePiece;
             return piece;
+        }
+        public void buyProperty(int rent, SpaceClass boughtSpace)
+        {
+            if(playerMoney - rent <= 0)
+            {
+                MessageBox.Show("Not enough Money!");
+            }
+            else
+            {
+                MessageBox.Show("You just bought: " + boughtSpace.getName());
+                boughtSpace.setOwn(true);
+                ownedSpaces.Add(boughtSpace);
+                playerMoney = playerMoney - rent;
+                
+            }
         }
         
     }

@@ -37,6 +37,11 @@
             this.btnUserColor = new System.Windows.Forms.Button();
             this.pbxDie = new System.Windows.Forms.PictureBox();
             this.btnRollDie = new System.Windows.Forms.Button();
+            this.txtUserMoney = new System.Windows.Forms.TextBox();
+            this.txtPlayer2Money = new System.Windows.Forms.TextBox();
+            this.btnPlayer2Color = new System.Windows.Forms.Button();
+            this.txtPlayer2Name = new System.Windows.Forms.TextBox();
+            this.lblPlayer2 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pbxDie)).BeginInit();
             this.SuspendLayout();
             // 
@@ -127,11 +132,63 @@
             this.btnRollDie.UseVisualStyleBackColor = true;
             this.btnRollDie.Click += new System.EventHandler(this.btnRollDie_Click);
             // 
+            // txtUserMoney
+            // 
+            this.txtUserMoney.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUserMoney.Location = new System.Drawing.Point(1084, 249);
+            this.txtUserMoney.Name = "txtUserMoney";
+            this.txtUserMoney.ReadOnly = true;
+            this.txtUserMoney.Size = new System.Drawing.Size(100, 30);
+            this.txtUserMoney.TabIndex = 6;
+            // 
+            // txtPlayer2Money
+            // 
+            this.txtPlayer2Money.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlayer2Money.Location = new System.Drawing.Point(1084, 392);
+            this.txtPlayer2Money.Name = "txtPlayer2Money";
+            this.txtPlayer2Money.ReadOnly = true;
+            this.txtPlayer2Money.Size = new System.Drawing.Size(100, 30);
+            this.txtPlayer2Money.TabIndex = 10;
+            // 
+            // btnPlayer2Color
+            // 
+            this.btnPlayer2Color.BackColor = System.Drawing.Color.Orange;
+            this.btnPlayer2Color.Enabled = false;
+            this.btnPlayer2Color.Location = new System.Drawing.Point(1010, 372);
+            this.btnPlayer2Color.Name = "btnPlayer2Color";
+            this.btnPlayer2Color.Size = new System.Drawing.Size(50, 50);
+            this.btnPlayer2Color.TabIndex = 9;
+            this.btnPlayer2Color.UseVisualStyleBackColor = false;
+            // 
+            // txtPlayer2Name
+            // 
+            this.txtPlayer2Name.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtPlayer2Name.Location = new System.Drawing.Point(1084, 341);
+            this.txtPlayer2Name.Name = "txtPlayer2Name";
+            this.txtPlayer2Name.ReadOnly = true;
+            this.txtPlayer2Name.Size = new System.Drawing.Size(168, 30);
+            this.txtPlayer2Name.TabIndex = 8;
+            // 
+            // lblPlayer2
+            // 
+            this.lblPlayer2.AutoSize = true;
+            this.lblPlayer2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPlayer2.Location = new System.Drawing.Point(1005, 344);
+            this.lblPlayer2.Name = "lblPlayer2";
+            this.lblPlayer2.Size = new System.Drawing.Size(73, 25);
+            this.lblPlayer2.TabIndex = 7;
+            this.lblPlayer2.Text = "Player:";
+            // 
             // MonopolyBoard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1291, 965);
+            this.Controls.Add(this.txtPlayer2Money);
+            this.Controls.Add(this.btnPlayer2Color);
+            this.Controls.Add(this.txtPlayer2Name);
+            this.Controls.Add(this.lblPlayer2);
+            this.Controls.Add(this.txtUserMoney);
             this.Controls.Add(this.btnRollDie);
             this.Controls.Add(this.pbxDie);
             this.Controls.Add(this.btnUserColor);
@@ -156,6 +213,11 @@
         private System.Windows.Forms.Button btnUserColor;
         private System.Windows.Forms.PictureBox pbxDie;
         private System.Windows.Forms.Button btnRollDie;
+        private System.Windows.Forms.TextBox txtUserMoney;
+        private System.Windows.Forms.TextBox txtPlayer2Money;
+        private System.Windows.Forms.Button btnPlayer2Color;
+        private System.Windows.Forms.TextBox txtPlayer2Name;
+        private System.Windows.Forms.Label lblPlayer2;
     }
 }
 

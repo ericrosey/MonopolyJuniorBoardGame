@@ -60,7 +60,7 @@ namespace MonopolyJr
             }
             return false;
         }
-
+        
         
     }
 

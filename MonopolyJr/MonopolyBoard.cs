@@ -188,19 +188,44 @@ namespace MonopolyJr
             createMonopolyBoardOnForm();
             txtUserPlayerName.Text = MonopolyBoardGame.user.getName();
             btnUserColor.BackColor = MonopolyBoardGame.user.getColor();
+            //MonopolyBoardGame.user.setMoney(20);
+            //MonopolyBoardGame.player2.setMoney(20);
+            txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
             pnlBoard.SendToBack();
+
+            MonopolyBoardGame.player2.setColor(System.Drawing.Color.Orange);
+            MonopolyBoardGame.player2.setName("Player 2");
+            txtPlayer2Name.Text = MonopolyBoardGame.player2.getName();
+            txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+
+            Button btn2 = MonopolyBoardGame.player2.makeButton();
+            pnlBoard.Controls.Add(btn2);
+            btn2.BringToFront();
+
             Button btn1 = MonopolyBoardGame.user.makeButton();
             pnlBoard.Controls.Add(btn1);
             btn1.BringToFront();
             MonopolyBoardGame.spaceList.initializeEntireList();
         }
-
+        
         private void btnRollDie_Click(object sender, EventArgs e)
         {
             Random random = new Random();
             int roll = random.Next(1, 7);
             MessageBox.Show("Roll: " + roll);
-            MonopolyBoardGame.user.movePiece(roll);
+            if (!MonopolyBoardGame.turn)//user
+            {
+                MonopolyBoardGame.user.movePiece(roll);
+                txtUserMoney.Text = "$" + Convert.ToString(MonopolyBoardGame.user.getMoney());
+            }
+            else//player2
+            {
+
+                MessageBox.Show("not user turn");
+                MonopolyBoardGame.player2.movePiece(roll);
+                txtPlayer2Money.Text = "$" + Convert.ToString(MonopolyBoardGame.player2.getMoney());
+            }
+            
         }
     }//close class
 }//close namespace
