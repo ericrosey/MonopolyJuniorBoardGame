@@ -10,15 +10,22 @@ namespace MonopolyJr
     class CardClass
     {
 
-        private int cardValue;
+        private int cardId, cardValue;
         private string cardText;
 
-        public object MessageShow { get; private set; }
+        public CardClass()
+        {
+
+        }
 
         public string displayCard()
         {
-            return cardValue + cardText;
+            return cardText + "\n$" + cardValue;
         }
+        public int getCardValue()
+        {
+            return cardValue;
+        } 
 
         public Boolean createCardObject(string c)
         {
@@ -37,7 +44,7 @@ namespace MonopolyJr
             }
             try
             {
-                cardValue = Convert.ToInt32(cardString[0]);
+                cardId = Convert.ToInt32(cardString[0]);
 
             }
             catch
@@ -51,17 +58,26 @@ namespace MonopolyJr
                 MessageBox.Show("Card has no text");
                 return false;
             }
+            try
+            {
+                cardValue = Convert.ToInt32(cardString[2]);
+            }
+            catch
+            {
+                MessageBox.Show("Card Value Not Integer");
+            }
             return true;
         }
         public Boolean checkCardID(int ID)//to get space in list for SpaceListClass
         {
             CardClass card = this;
 
-            if (ID == card.cardValue)
+            if (ID == card.cardId)
             {
-                cardValue = card.cardValue;
+                cardId = card.cardId;
                 cardText = card.cardText;
-                MessageBox.Show(card.displayCard());
+                cardValue = card.cardValue;
+
                 return true;
             }
 

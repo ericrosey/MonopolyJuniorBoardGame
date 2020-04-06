@@ -115,7 +115,6 @@ public class SpaceClass
                 }
                 else
                 {
-                    MessageBox.Show("player2 should buy property");
                     MonopolyJr.MonopolyBoardGame.player2.buyProperty(rent, space);
                     MonopolyJr.MonopolyBoardGame.turn = false;
                 }
@@ -123,9 +122,23 @@ public class SpaceClass
 
             else if(spaceType == "chance")//call find card, get random card instance == to random card call display 
             {
-                MessageBox.Show("you landed on chance");
-                MonopolyJr.CardClass chanceCard = MonopolyJr.MonopolyBoardGame.cardList.randomCard();
-                MessageBox.Show("chance card" + chanceCard.displayCard());
+                if (!MonopolyJr.MonopolyBoardGame.turn)//player1 turn
+                {
+                    //MonopolyJr.MonopolyBoardGame.user.userPayRent(rent, space);
+                    MonopolyJr.CardClass chanceCard1 = MonopolyJr.MonopolyBoardGame.cardList.randomCard();
+                    MessageBox.Show(chanceCard1.displayCard());
+                    MonopolyJr.MonopolyBoardGame.user.doChanceCard(chanceCard1);
+                    MonopolyJr.MonopolyBoardGame.turn = true;
+                }
+                else
+                {
+                    //MonopolyJr.MonopolyBoardGame.player2.player2PayRent(rent, space);
+                    MonopolyJr.CardClass chanceCard2 = MonopolyJr.MonopolyBoardGame.cardList.randomCard();
+                    MessageBox.Show(chanceCard2.displayCard());
+                    MonopolyJr.MonopolyBoardGame.player2.doChanceCard(chanceCard2);
+                    MonopolyJr.MonopolyBoardGame.turn = false;
+                }
+
             }
 
             else if(isOwned && spaceType == "property")//this handles owned prop
@@ -146,15 +159,12 @@ public class SpaceClass
             }
             else
             {
-                MessageBox.Show("Either chance, or corner piece");
                 if (!MonopolyJr.MonopolyBoardGame.turn)
                 {
-                    MessageBox.Show("user grab chance");
                     MonopolyJr.MonopolyBoardGame.turn = true;
                 }
                 else
                 {
-                    MessageBox.Show("player2 grab chance");
                     MonopolyJr.MonopolyBoardGame.turn = false;
                 }
             }
