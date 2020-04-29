@@ -1,0 +1,8 @@
+﻿1 * Buy Season Tickets * -3
+2 * Win Nobel Prize * 5
+3 * Sell All Your Valuable Coins * 4
+4 * Buy a Hotdog * -1
+5 * Take Your Dream Girl/Guy Out to Dinner * -4
+6 * Buy Some Stocks * -2
+7 * Sell Your Pants * 2
+8 * Win Eating Competition * 3

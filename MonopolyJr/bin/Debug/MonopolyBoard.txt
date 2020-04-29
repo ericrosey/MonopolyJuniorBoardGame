@@ -1,0 +1,24 @@
+﻿0 * 0 * GO * GO * white
+1 * 1 * property * Burger Joint * brown
+2 * 1 * property * Pizza House * brown
+3 * 0 * chance * Chance * white
+4 * 2 * property * Candy Store * blue
+5 * 2 * property * Ice Cream Parlor * blue
+6 * 0 * Jail * Jail * white
+7 * 2 * property * Museum * pink
+8 * 2 * property * Library * pink
+9 * 0 * chance * Chance * white
+10 * 2 * property * Skate Park * orange
+11 * 2 * property * Swimming Pool * orange
+12 * 0 * Free Parking * Free Parking * white
+13 * 3 * property * Video Arcade * red
+14 * 3 * property * Cinema * red
+15 * 0 * chance * Chance * white
+16 * 3 * property * Toy Store * yellow
+17 * 3 * property * Pet Store * yellow
+18 * 0 * Go to Jail * Go to Jail * white
+19 * 4 * property * Bowling Alley * green
+20 * 4 * property * Zoo * green
+21 * 0 * chance * Chance * white
+22 * 5 * property * Park Place * purple
+23 * 5 * property * BoardWalk * purple

@@ -1,0 +1,22 @@
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.csprojAssemblyReference.cache
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.MonopolyBoard.resources
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.Properties.Resources.resources
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.Welcome.resources
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.csproj.GenerateResource.cache
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.csproj.CoreCompileInputs.cache
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\bin\Debug\MonopolyJr.exe.config
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\bin\Debug\MonopolyJr.exe
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\bin\Debug\MonopolyJr.pdb
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.exe
+C:\Users\12152\source\repos\MonopolyJr\MonopolyJr\obj\Debug\MonopolyJr.pdb
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\bin\Debug\MonopolyJr.exe.config
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\bin\Debug\MonopolyJr.exe
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\bin\Debug\MonopolyJr.pdb
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.csprojAssemblyReference.cache
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.MonopolyBoard.resources
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.Properties.Resources.resources
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.Welcome.resources
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.csproj.GenerateResource.cache
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.csproj.CoreCompileInputs.cache
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.exe
+C:\Users\12152\source\repos\MonopolyJr Finished\MonopolyJr\obj\Debug\MonopolyJr.pdb
